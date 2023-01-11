@@ -22,39 +22,39 @@ function getYear2(){
     return inputYear2;
 }
 
-function isLeapYear(yearparam) {
+function isLeapYear(yearParam) {
     
     result = document.getElementById("isLeapYearResult");
 
     // Fetch data from API
-    fetch('https://serafina.tk/api/calendar/isLeapYear/' + yearparam)
+    fetch('https://serafina.tk/api/calendar/isLeapYear/' + yearParam)
     .then(response => response.json())
     .then(data => {
 
         console.log(data);
 
-        result.innerHTML = "Is " + yearparam + " a leap year: " + data.isLeapYear;
+        result.innerHTML = "Is " + yearParam + " a leap year: " + data.isLeapYear;
 
     })
 }
 
-function firstDayOfYear(yearparam) {
+function firstDayOfYear(yearParam) {
 
     result = document.getElementById("theFirstDayOfYear");
-    fetch('https://serafina.tk/api/calendar/firstDayOfYear/' + yearparam)
+    fetch('https://serafina.tk/api/calendar/firstDayOfYear/' + yearParam)
     .then(response => response.json())
     .then(data => {
         
         console.log(data);
 
-        result.innerHTML = "The first day of the year " + yearparam + " was this day of the week: " + data.firstDayOfYear;
+        result.innerHTML = "The first day of the year " + yearParam + " was this day of the week: " + data.firstDayOfYear;
     })
 }
 
-function dayOfYear(monthparam, dayparam, yearparam) {
+function dayOfYear(monthParam, dayParam, yearParam) {
     
     result = document.getElementById("dayOfYear");
-    valueParam = monthparam + '/' + dayparam + '/' + yearparam;
+    valueParam = monthParam + '/' + dayParam + '/' + yearParam;
     // Fetch data from API
     fetch('https://serafina.tk/api/calendar/dayOfYear/' + valueParam)
     .then(response => response.json())
@@ -62,32 +62,32 @@ function dayOfYear(monthparam, dayparam, yearparam) {
 
         console.log(data);
 
-        result.innerHTML = "What day of the year is the date " + monthparam+ "/"+ dayparam+ "/"+ yearparam+ "?  "  + data.dayOfYear;
+        result.innerHTML = "What day of the year is the date " + monthParam+ "/"+ dayParam+ "/"+ yearParam+ "?  "  + data.dayOfYear;
 
     })
 }
 
-function numberOfLeapYears(yearparam, year2param) {
+function numberOfLeapYears(yearParam, year2Param) {
     
     result = document.getElementById("numberOfLeapYears");
 
     // Fetch data from API
-    fetch('https://serafina.tk/api/calendar/numberOfLeapYears/' + yearparam+ '/' +year2param)
+    fetch('https://serafina.tk/api/calendar/numberOfLeapYears/' + yearParam+ '/' +year2Param)
     .then(response => response.json())
     .then(data => {
 
         console.log(data);
 
-        result.innerHTML = "How many leap years are between " + yearparam + " and " +year2param +"? " +data.numberOfLeapYears;
+        result.innerHTML = "How many leap years are between " + yearParam + " and " +year2Param +"? " +data.numberOfLeapYears;
 
     })
 }
 
 
-function dayOfWeek(monthparam,dayparam, yearparam) {
+function dayOfWeek(monthParam,dayParam, yearParam) {
     
     result = document.getElementById("dayOfWeek");
-    valueParam = monthparam + '/' + dayparam + '/' + yearparam;
+    valueParam = monthParam + '/' + dayParam + '/' + yearParam;
     
     // Fetch data from API
     fetch('https://serafina.tk/api/calendar/dayOfWeek/' +valueParam)
@@ -96,7 +96,7 @@ function dayOfWeek(monthparam,dayparam, yearparam) {
 
         console.log(data);
 
-        result.innerHTML = "What day of the week is the date " + monthparam+ "/"+ dayparam+ "/"+ yearparam+ "?  "+ data.dayOfWeek;
+        result.innerHTML = "What day of the week is the date " + monthParam+ "/"+ dayParam+ "/"+ yearParam+ "?  "+ data.dayOfWeek;
 
     })
 }
