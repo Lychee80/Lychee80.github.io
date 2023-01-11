@@ -15,7 +15,7 @@ function getColumns(){
 function getRGB(red, green, blue)
 {
         console.log("rgb: " + red);
-        return ( "#" + "%02X" + red + "%02X" + green + "%02X" + blue);    
+        return ( "#" + red.toString(16) + green.toString(16) + blue.toString(16));    
 }
 
 function generate(rowsparam, columnparam) {
@@ -39,10 +39,7 @@ function generate(rowsparam, columnparam) {
         var table = document.createElement("table");
         table.setAttribute("border", "1");
         table.setAttribute("style", "border-collapse: collapse;");
-        var tableBody = document.createElement("tbody");
-        console.log("Board Length: " + board.length);
-        console.log("Board Light red: "+ board[0].light.red);
-        
+        var tableBody = document.createElement("tbody");       
 
         for (var i = 0; i < board.length; i++) {
             var row = document.createElement("tr");
@@ -51,13 +48,15 @@ function generate(rowsparam, columnparam) {
             var cellText = document.createTextNode(board[i].light.effect);
             var cellText2 = document.createTextNode(getRGB(board[i].light.red, board[i].light.green, board[i].light.blue));
             // set color of cell based on rgb hex code if light is on
-            if (board[i].light.on) {
+            if (!board[i].light.on) {
                 cell.setAttribute("style", "background-color: " + getRGB(board[i].light.red, board[i].light.green, board[i].light.blue));
             }
             cell.appendChild(cellText);
             cell.appendChild(cellText2);
             row.appendChild(cell);
+            i++;
             }
+            i--;
             tableBody.appendChild(row);
         }
         table.appendChild(tableBody);        

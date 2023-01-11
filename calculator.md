@@ -8,7 +8,7 @@
 function calculate(){
     var expression = document.getElementById("expression").value;
 
-    var str_url_expression = "https://serafina.tk/api/calculator/calculate" + expression;
+    var str_url_expression = "https://serafina.tk/api/calculator/" + expression;
     console.log(str_url_expression)
 
     fetch(str_url_expression)
@@ -21,10 +21,9 @@ function calculate(){
     }
     
     // valid response will have JSON data
-    response.json().then(data => {
+    response.text().then(data => {
         console.log(data);
-        console.log(data.result);
-        document.getElementById("calculated_result").innerHTML = "Result: " + data.result;
+        document.getElementById("calculated_result").innerHTML = "Result: " + data;
     })
 })
 
