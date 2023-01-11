@@ -12,7 +12,7 @@
         
         console.log(data);
         
-        result.innerHTML = "Information from the API: " + data.post;
+        result.innerHTML = "Information from the API: " + data;
       
       })
       

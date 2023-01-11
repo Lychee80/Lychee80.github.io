@@ -54,9 +54,9 @@ function firstDayOfYear(yearparam) {
 function dayOfYear(monthparam, dayparam, yearparam) {
     
     result = document.getElementById("dayOfYear");
-
+    valueParam = monthparam + '/' + dayparam + '/' + yearparam;
     // Fetch data from API
-    fetch('https://serafina.tk/api/calendar/dayOfYear/' + monthparam+ dayparam+yearparam)
+    fetch('https://serafina.tk/api/calendar/dayOfYear/' + valueParam)
     .then(response => response.json())
     .then(data => {
 
@@ -72,13 +72,13 @@ function numberOfLeapYears(yearparam, year2param) {
     result = document.getElementById("numberOfLeapYears");
 
     // Fetch data from API
-    fetch('https://serafina.tk/api/calendar/numberOfLeapYears/' + yearparam+year2param)
+    fetch('https://serafina.tk/api/calendar/numberOfLeapYears/' + yearparam+ '/' +year2param)
     .then(response => response.json())
     .then(data => {
 
         console.log(data);
 
-        result.innerHTML = "How many leap years are between " + yearparam + "and" +year2param + data.numberOfLeapYears;
+        result.innerHTML = "How many leap years are between " + yearparam + " and " +year2param +"? " +data.numberOfLeapYears;
 
     })
 }
@@ -87,9 +87,10 @@ function numberOfLeapYears(yearparam, year2param) {
 function dayOfWeek(monthparam,dayparam, yearparam) {
     
     result = document.getElementById("dayOfWeek");
-
+    valueParam = monthparam + '/' + dayparam + '/' + yearparam;
+    
     // Fetch data from API
-    fetch('https://serafina.tk/api/calendar/dayOfWeek/' +monthparam+ dayparam+yearparam)
+    fetch('https://serafina.tk/api/calendar/dayOfWeek/' +valueParam)
     .then(response => response.json())
     .then(data => {
 
@@ -101,33 +102,28 @@ function dayOfWeek(monthparam,dayparam, yearparam) {
 }
 </script>
 
-### Is this year a leap year?
 <input id="inputYear" placeholder="Input a Year">
+### Is this year a leap year?
 <button onclick="isLeapYear(getYear())">Submit</button>
 <p id="isLeapYearResult"></p>
 
 ### The day of week of the first day of Year 
-<input id="inputYear" placeholder="Input a Year">
 <button onclick="firstDayOfYear(getYear())">Submit</button>
 <p id="theFirstDayOfYear"></p>
 
-### Day of Year
-<input id="inputYear" placeholder="Input a Year">
-<input id="input month" placeholder="Input a month">
-<input id="input day" placeholder="Input a day">
-<button onclick="dayOfYear(getMonth(),getDay(), getYear())">Submit</button>
-<p id="dayOfYear"></p>
-
 ### Number of leap years between years
-<input id="inputYear" placeholder="Input a Year">
 <input id="inputYear2" placeholder="Input a second Year">
 <button onclick="numberOfLeapYears(getYear(),getYear2())">Submit</button>
 <p id="numberOfLeapYears"></p>
 
+<input id="inputMonth" placeholder="Input a month">
+<input id="inputDay" placeholder="Input a day">
+### Day of Year
+<button onclick="dayOfYear(getMonth(),getDay(), getYear())">Submit</button>
+<p id="dayOfYear"></p>
+
+
 ### Day of week
-<input id="inputYear" placeholder="Input a Year">
-<input id="input month" placeholder="Input a month">
-<input id="input day" placeholder="Input a day">
 <button onclick="dayOfWeek(getMonth(),getDay(), getYear())">Submit</button>
 <p id="dayOfWeek"></p>
 

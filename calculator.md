@@ -2,29 +2,34 @@
 
 ### You can use this feature to do some basic calculations :)
 
-<button onclick="calculator()">Enter Equation</button>
-
-<p> Answer: <p id="answer"> </p>
 
 <script>
-  
-  function calculator() {
-    let expression = prompt("Enter equation");
-    const urlStart = "https://serafina.tk/api/calculator/";
-    const url = urlStart + expression;
 
-    console.log(url),{"method": "GET"}; 
+function calculate(){
+    var expression = document.getElementById("expression").value;
 
-    fetch(url,{"method": "GET"})
-      .then(res => res.json())
-      .then(data => {
+    var str_url_expression = "https://serafina.tk/api/calculator/calculate" + expression;
+    console.log(str_url_expression)
+
+    fetch(str_url_expression)
+    // response is a RESTful "promise" on any successful fetch
+    .then(response => {
+      // check for response errors
+    if (response.status !== 200) {
+        error('GET API/Fetch Response Failure: ' + response.status);
+        return;
+    }
+    
+    // valid response will have JSON data
+    response.json().then(data => {
         console.log(data);
-        
-        document.getElementById("answer").innerHTML = data.result; 
-      
-      })
-      
+        console.log(data.result);
+        document.getElementById("calculated_result").innerHTML = "Result: " + data.result;
+    })
+})
+
 }
+
 </script>
 
 <style> 
@@ -47,3 +52,15 @@ p {
   color: white;
 }
 </style>
+
+<br>
+<h2>Calculate: </h2>
+<label for="expression">Enter Expression: </label>
+<input type="text" id="expression" name="expression" >
+<br>
+<br>
+<button onclick="calculate()">Calculate Now!</button> 
+<br>
+<h3 id="calculated_result">The answer is: </h3>
+<br>
+<br>
