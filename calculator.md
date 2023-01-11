@@ -10,7 +10,7 @@
   
   function calculator() {
     let expression = prompt("Enter equation");
-    const urlStart = "https://serafina.tk/api/calculator/";
+    const urlStart = "https://serafina.tk/api/calculator/start";
     const url = urlStart + expression;
 
     console.log(url),{"method": "GET"}; 
