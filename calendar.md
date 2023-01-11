@@ -47,7 +47,7 @@ function firstDayOfYear(yearparam) {
         
         console.log(data);
 
-        result.innerHTML = "The first day of the year: " + yearparam + "was this day of the week: " + data.firstDayOfYear;
+        result.innerHTML = "The first day of the year " + yearparam + " was this day of the week: " + data.firstDayOfYear;
     })
 }
 
@@ -62,7 +62,7 @@ function dayOfYear(monthparam, dayparam, yearparam) {
 
         console.log(data);
 
-        result.innerHTML = "What day of the year is the date " + monthparam+ dayparam+ yearparam  + data.dayOfYear;
+        result.innerHTML = "What day of the year is the date " + monthparam+ "/"+ dayparam+ "/"+ yearparam+ "?  "  + data.dayOfYear;
 
     })
 }
@@ -96,7 +96,7 @@ function dayOfWeek(monthparam,dayparam, yearparam) {
 
         console.log(data);
 
-        result.innerHTML = "What day of the week is the date " + monthparam+ dayparam+ yearparam  +data.dayOfWeek;
+        result.innerHTML = "What day of the week is the date " + monthparam+ "/"+ dayparam+ "/"+ yearparam+ "?  "+ data.dayOfWeek;
 
     })
 }
