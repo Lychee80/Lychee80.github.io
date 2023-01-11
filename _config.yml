@@ -1,4 +1,4 @@
-theme: jekyll-theme-midnight
+remote_theme:  pages-themes/hacker@v0.2.0
 title: "Team 2 Github Project"
 description: "Team 2 Github Project"
 gitorg: "https://github.com/PrishaB/Team2Reunion"
