@@ -57,3 +57,11 @@ function generate() {
 
 <button onclick="generate()">Generate</button>
 <div id="result">
+
+<style> 
+
+p {
+  font-size: 20px;
+  color: white;
+}
+</style>

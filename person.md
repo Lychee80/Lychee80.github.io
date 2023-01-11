@@ -32,7 +32,7 @@ button {
 
 p {
   font-size: 20px;
-  color: #010000;
+  color: white;
 }
 </style>
 

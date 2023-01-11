@@ -130,3 +130,12 @@ function dayOfWeek(monthparam,dayparam, yearparam) {
 <input id="input day" placeholder="Input a day">
 <button onclick="dayOfWeek(getMonth(),getDay(), getYear())">Submit</button>
 <p id="dayOfWeek"></p>
+
+<style> 
+
+
+p {
+  font-size: 20px;
+  color: white;
+}
+</style>
